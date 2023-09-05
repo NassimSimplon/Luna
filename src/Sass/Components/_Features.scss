@@ -1,0 +1,25 @@
+@use "sass:map";
+@use "../PlaceHolders/PlaceHolders" as *;
+@use "../Variables/Colors" as *;
+
+.splitToFour {
+  .featureCard {
+    @extend %Primary_size;
+    text-align: center;
+    .title {
+      font-size: 30px;
+    }
+    .description-text {
+      margin: auto;
+      max-width: 264px;
+      font-size: 18px;
+      font-family: poppins-extralight, poppins, sans-serif;
+      margin-top: 10px;
+    }
+    .btn {
+      color: map.get($primary_Colors, "primary-color-04");
+      border: 1px map.get($primary_Colors, "primary-color-01") solid !important;
+      margin-top: 25px;
+    }
+  }
+}

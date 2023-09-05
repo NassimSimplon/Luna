@@ -1,0 +1,28 @@
+{
+  "features": [
+    {
+      "id": 1,
+      "title": "Learn",
+      "description": "Discover videos and articles about different topics – all created by experts",
+      "btn":"Browse content"
+    },
+    {
+      "id": 2,
+      "title": "Ask",
+      "description": "Ask a question anonymously and have it answered by one of luna’s experts",
+      "btn":"Browse questions"
+    },
+    {
+      "id": 3,
+      "title": "Track",
+      "description": "Log cycles, skin and mood to help with being more proactive about well-being",
+      "btn":"Start tracking"
+    },
+    {
+      "id": 4,
+      "title": "Shop",
+      "description": "Discount codes and curated products from brands luna's partnered with",
+      "btn":"Explore now"
+    }
+  ] 
+}

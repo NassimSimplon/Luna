@@ -1,0 +1,73 @@
+@use "sass:map";
+@use "../Variables/Colors" as *;
+@use "../PlaceHolders//PlaceHolders" as *;
+@use "../Mixins/Mixins" as *;
+
+.navbar {
+  @extend %Primary_size;
+  background-color: map.get($primary_Colors, "primary-color-04");
+  color: map.get($primary_Colors, "primary-color-01");
+  @extend %flex_Row;
+  padding: 1.5rem 3rem;
+  z-index: 99999;
+  position: fixed;
+  top: 0 !important;
+  left: 0;
+  @include SpecificBorder(
+    bottom,
+    map.get($secondary_Colors, "secondary-color-01"),
+    0
+  );
+  @include respond-to("small", "medium") {
+    padding: 1.5rem 32px;
+  }
+  > img:nth-child(1) {
+    width: 70px;
+    height: 30px;
+  }
+  .menu {
+    display: none !important;
+
+    @include respond-to("small", "large") {
+      display: block !important;
+    }
+  }
+  > ul {
+    @extend %Forth_size;
+    @extend %flex_No_Justify;
+    margin: 0;
+    gap: 1rem;
+    @include respond-to("small", "large") {
+      background-color: map.get($primary_Colors, "primary-color-04");
+      width: 100% !important;
+      position: fixed;
+      top: 80px;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding: 3rem;
+      height: 100%;
+    }
+    > li {
+      font-size: 19px;
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 0%;
+        height: 100%;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        border-bottom: 2px solid
+          map.get($secondary_Colors, "secondary-color-01");
+        transition: all 0.4s ease;
+      }
+      &:hover::before {
+        width: 100%;
+      }
+    }
+  }
+}

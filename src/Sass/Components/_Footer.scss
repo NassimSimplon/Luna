@@ -1,0 +1,120 @@
+@use "sass:map";
+@use "../Variables/Colors" as *;
+@use "../PlaceHolders/PlaceHolders" as *;
+@use "../Mixins/Mixins" as *;
+
+.page-footer {
+  @extend %Third_size;
+  padding: 3rem 5rem;
+  @include respond-to("small", "medium") {
+    padding: 3rem ;
+  }
+  .first-block {
+    .links {
+      @extend %Forth_size;
+      @extend %flex_Column;
+      align-items: flex-start;
+      gap: 15px;
+      > a {
+        color: map.get($primary_Colors, "primary-color-03");
+      }
+    }
+    @include respond-to("x-large", "extra-large") {
+      @include grid(repeat(3, 1fr));
+    }
+    @include respond-to("medium", "x-large") {
+      @include grid(repeat(2, 1fr));
+    }
+    @include respond-to("small", "medium") {
+        @include grid(1fr);
+        gap: 2rem;
+      }
+  }
+  .contact {
+    margin-inline: auto;
+    .sectionTitle {
+      text-align: center;
+      color: map.get($primary_Colors, "primary-color-01");
+
+      font-size: 30px;
+      > span {
+        color: map.get($primary_Colors, "primary-color-03");
+      }
+      @include respond-to("medium", "x-large") {
+        font-size: 20px !important;
+      }
+      @include respond-to("small", "medium") {
+  text-align: left;
+  font-size: 17px;
+      }
+    }
+    .icons {
+      margin-inline: auto;
+      margin-top: 25px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      > img {
+        
+          width: 40px;
+          height: 40px;
+   
+        @include respond-to("small", "medium"){
+            width: 30px;
+            height: 30px;
+        }
+      }
+      @include respond-to("medium", "x-large") {
+        gap: 10px;
+      }
+    }
+    @include respond-to("small", "medium") {
+        margin-inline: 0;
+    }
+  }
+  .store-icons {
+    @extend %Third_size;
+    margin-inline: auto;
+    @extend %flex_Column;
+    align-items: flex-end;
+    gap: 2rem;
+    @include respond-to("medium", "x-large") {
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      grid-column: 1/3;
+      grid-row: 2/4;
+      > img {
+        width: 200px;
+        height: 50px;
+        object-fit: contain;
+      }
+    }
+    @include respond-to("small", "medium"){
+        align-items: flex-start;
+    }
+  }
+  .last-block{
+    @extend %flex_Row ;
+    margin-top: 3rem;
+ .date{
+    font-family: poppins-extralight, poppins, sans-serif;
+    font-size: 14px;
+    margin: 0;
+ }
+ > img{
+    width: 63px;
+    margin: 0;
+    height: 27px;
+ }
+ @include respond-to("small", "medium"){
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 2rem;
+}
+  }
+}

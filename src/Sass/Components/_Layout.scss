@@ -1,0 +1,25 @@
+@use "sass:map";
+@use "../Mixins/Mixins" as *;
+@use "../PlaceHolders/PlaceHolders" as *;
+@use "../Variables/Colors" as *;
+.splitToFour {
+  background-color: map.get($primary_Colors, "primary-color-02");
+  @extend %Third_size;
+  @include respond-to("small", "medium") {
+    @include grid(1fr);
+    gap: 2rem;
+    padding: 2rem;
+  }
+  @include respond-to("medium", "x-large") {
+    @include grid(1fr 1fr);
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  @include respond-to("x-large", "extra-large") {
+    @include grid(repeat(4, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+    padding-bottom: 5rem;
+  }
+}

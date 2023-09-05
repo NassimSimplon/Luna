@@ -1,0 +1,62 @@
+@use "sass:map";
+
+@use "../PlaceHolders/PlaceHolders" as *;
+@use "../Variables/Colors" as *;
+@use "../Mixins/Mixins" as *;
+.intro {
+  @extend %Third_size;
+  height: 80vh;
+  background-image: url(https://static.wixstatic.com/media/22c520_3d9f8c0a4c6c4b2580bf5f0910a90f94~mv2.jpg/v1/fill/w_1837,h_881,al_c,q_85,enc_auto/22c520_3d9f8c0a4c6c4b2580bf5f0910a90f94~mv2.jpg);
+  background-position: 100% 40%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  .content {
+    width: 450px;
+    margin: auto;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      width: 150%;
+      height: 150%;
+      aspect-ratio: 1 / 1;
+      background-color: map.get($primary_Colors, "primary-color-04");
+      position: absolute;
+      top: -43%;
+      left: 50;
+      transform: translate(-50%, 0%);
+      z-index: -1;
+      border-radius: 50%;
+    }
+    .title {
+      font-family: poppins-extralight, poppins, sans-serif;
+      color: map.get($primary_Colors, "primary-color-03");
+      font-weight: bold;
+      font-size: 35px;
+      .sub {
+        color: map.get($primary_Colors, "primary-color-01");
+        font-family: poppins-extralight, poppins, sans-serif;
+        font-weight: 1000 !important;
+      }
+    }
+    > p {
+      font-family: poppins-extralight, poppins, sans-serif;
+    }
+    @include respond-to("small", "large") {
+      width: 100%;
+      &::before {
+        border-radius: 0;
+      }
+    }
+  }
+  @include respond-to("small", "large") {
+    width: 100%;
+    height: fit-content;
+    background-attachment: fixed;
+    background-position: top;
+  }
+}
